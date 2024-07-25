@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, Request, Form
 from starlette.responses import HTMLResponse
 from starlette.templating import Jinja2Templates
 
@@ -8,10 +8,23 @@ sungjuk_router = APIRouter()
 templates = Jinja2Templates(directory='views/templates')
 
 # 라우트 설정
+# url 주소 입력할때
 @sungjuk_router.get('/', response_class=HTMLResponse)
 async def sungjuk(req: Request):
     return templates.TemplateResponse('sungjuk/sungjuk.html', {'request': req})
 
+# '입력완료' 버튼을 누를때
 @sungjuk_router.post('/', response_class=HTMLResponse)
-async def sungjukok():
-    pass
+async def sungjukok(req: Request,name:str = Form(...),
+                    kor:int = Form(...),eng:int = Form(...),mat:int = Form(...)):
+    print(name, kor, eng, mat)
+    tot = kor + eng + mat
+    avg = tot / 3
+    grd = '가'
+    if (avg >= 90) : grd = '수'
+    elif (avg >= 80) : grd = '우'
+    elif (avg >= 70) : grd = '미'
+    elif (avg >= 60) : grd = '양'
+    return templates.TemplateResponse('sungjuk/result.html',
+            {'name': name, 'kor': kor, 'eng': eng, 'mat': mat,
+             'tot': tot, 'avg': avg, 'grd': grd, 'request': req})
