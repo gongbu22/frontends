@@ -1,4 +1,4 @@
-from fastapi import APIRouter,Request
+from fastapi import APIRouter,Request, Form
 from starlette.templating import Jinja2Templates
 
 
@@ -25,9 +25,30 @@ async def link(req: Request):
     return templates.TemplateResponse('html/03link.html', {'request': req})
 
 @html_router.get('/list')
-async def link(req: Request):
+async def list(req: Request):
     return templates.TemplateResponse('html/04list.html', {'request': req})
 
 @html_router.get('/table')
-async def link(req: Request):
+async def table(req: Request):
     return templates.TemplateResponse('html/05table.html', {'request': req})
+
+@html_router.get('/image')
+async def image(req: Request):
+    return templates.TemplateResponse('html/06image.html', {'request': req})
+
+@html_router.get('/form')
+async def form(req: Request):
+    return templates.TemplateResponse('html/07form.html', {'request': req})
+
+@html_router.post('/formproc')
+async def formok(req: Request, userid: str = Form(...), passwd: str = Form(...)):
+    print(f'회원가입 정보가 서버로 전송됨 : {userid} {passwd}')
+    return templates.TemplateResponse('html/07form.html', {'request': req})
+
+@html_router.get('/joinfrm')
+async def formok(req: Request):
+    return templates.TemplateResponse('html/08joinfrm.html', {'request': req})
+
+@html_router.get('/semantic')
+async def formok(req: Request):
+    return templates.TemplateResponse('html/09semantic.html', {'request': req})
