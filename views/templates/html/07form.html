@@ -105,18 +105,29 @@
 
     <hr>
     <ul>
-        number
-        tel
-        search
-        email
-        url
-        color
-        range
-        date
-        time
-        datalist
-        meter
-        progress
+        <li>number : 숫자 입력을 받을 수 있는 필드 <input type="number" name="quantity" min="1" max="10" required>
+        </li>
+        <li>tel : 전화번호 입력을 받을 수 있는 필드. 전화번호 형식에 대한 기본 검증이 적용됨. <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+        </li>
+        <li>search: 검색어 입력을 위한 필드. 검색어에 맞는 UI 조정이 가능. <input type="search" name="query" placeholder="Search...">
+        </li>
+        <li>email : 이메일 주소 입력을 받을 수 있는 필드. 기본적인 이메일 형식 검증이 적용됨. <input type="email" name="email" required>
+        </li>
+        <li>url : URL 입력을 받을 수 있는 필드. URL 형식 검증이 적용됨.<input type="url" name="website" placeholder="https://www.naver.com" required>
+        </li>
+        <li>color : 색상 선택을 위한 필드. 색상 선택 UI가 제공됨. <input type="color" name="favcolor" value="#ff0000"></li>
+        <li>range : 범위 선택을 위한 슬라이더. 최소값과 최대값을 설정할 수 있음. <input type="range" name="volume" min="0" max="100" value="50"></li>
+        <li>date : 날짜 선택을 위한 필드. 날짜 선택 UI가 제공됨. <input type="date" name="birthdate"></li>
+        <li>time : 시간 선택을 위한 필드. 시간 선택 UI가 제공됨. <input type="time" name="appointment"></li>
+        <li>datalist
+            <ul>
+                <li>datetime-local: 날짜와 시간을 함께 선택할 수 있는 필드. <input type="datetime-local" name="event"></li>
+                <li>month: 특정 월과 연도를 선택할 수 있는 필드. <input type="month" name="monthyear"></li>
+                <li>week: 특정 주와 연도를 선택할 수 있는 필드. <input type="week" name="weekyear"></li>
+            </ul>
+        </li>
+        <li>meter : 정량적인 값을 시각적으로 나타내는 메터 필드. <meter value="0.6">60%</meter></li>
+        <li>progress : 작업의 진행 상황을 나타내는 프로그레스 바. <progress value="70" max="100">70%</progress></li>
     </ul>
 
     <h2>공통 input 속성</h2>
