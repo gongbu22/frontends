@@ -52,3 +52,11 @@ async def formok(req: Request):
 @html_router.get('/semantic')
 async def formok(req: Request):
     return templates.TemplateResponse('html/09semantic.html', {'request': req})
+
+@html_router.get('/project1')
+async def formok(req: Request):
+    return templates.TemplateResponse('html/10project1.html', {'request': req})
+
+@html_router.get('/project2')
+async def formok(req: Request):
+    return templates.TemplateResponse('html/11project2.html', {'request': req})
