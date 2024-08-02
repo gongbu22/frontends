@@ -9,10 +9,24 @@
         #container { border: 1px solid black; width: 1080px; margin: 0 auto; }
 
         /* header */
-        header { border: 1px solid darkred }
+        header { border: 1px solid darkred; height: 100px }
+
+        header h1 { background: #cccccc; width: 150px;
+            text-align: center; padding: 10px 0;
+            margin-left: 20px; float:left }
+
+        header ul { list-style: none; padding: 0; float: right; }
+        header ul li { display: inline-block; padding: 0 2px; }
+        header ul li:after { content:' |' }
+        header ul li:last-child:after { content: ''; margin-right: 10px }
+
+        header div { float: left; margin-top: 63px; margin-left: 15px}
+
+        .clear { clear: both }
 
         /* nav */
         nav { border: 1px solid darkgreen }
+
 
         /* main */
         main { border: 1px solid darkviolet }
@@ -52,16 +66,16 @@
     <div id="container">
         <header>
             <h1>LOGO</h1>
-            <div id="menu"><ul>
+            <ul>
                 <li>contact</li>
                 <li>store locator</li>
                 <li>support</li>
                 <li>CART</li>
-            </ul></div>
-            <div id="link"><a href="#">Login</a> or
+            </ul>
+            <div><a href="#">Login</a> or
                 <a href="#">Create Account</a></div>
         </header>
-        <nav>
+        <nav class="clear">
             <input type="text" name="search" id="search" class="nav">
             <select name="findtype" id="findtype" class="nav">
                 <option>Category</option>
