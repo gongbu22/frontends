@@ -64,7 +64,7 @@ public static void main(String[] args) {
 | 하니 |  95 |  88  | 69  |
 
 ---
-$ a^2 = b^2 + c^2 $ <br>
+$a^2 = b^2 + c^2$ <br>
 $$ x = {-b \pm \sqrt {b^2 - 4ac} \over 2a} $$
 
 
