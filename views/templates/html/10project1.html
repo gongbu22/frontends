@@ -3,81 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <title>프로젝트1</title>
+    <style>
+        /* header, nav, main, footer 등을
+         중앙에 배치하기 위해 컨테이너 요소 생성*/
+        #container { border: 1px solid black; width: 1080px; margin: 0 auto; }
+
+        /* header */
+        header { border: 1px solid darkred }
+
+        /* nav */
+        nav { border: 1px solid darkgreen }
+
+        /* main */
+        main { border: 1px solid darkviolet }
+
+        /* footer */
+        footer { border: 1px solid darkcyan }
+
+        /*header { width: 100%; height: 100px;  }*/
+        /*header h1 { width: 200px; height: 100px;*/
+        /*    display: flex; justify-content: center; align-items: center;*/
+        /*     margin-top: 0px; background: hotpink; float:left }*/
+        /*#menu, #link { width: 70%;}*/
+        /*#menu { height: 70px; float: right; }*/
+        /*#link { height: 30px; float: left; margin-left: 10px }*/
+
+        /*#menu ul { list-style-type: none; padding:0; float: right}*/
+        /*#menu ul li { display: inline; margin-right: 10px }*/
+
+        /*!*#headerbottom { float:left; vertical-align: bottom }*!*/
+        /*!*!*header div a:link { text-decoration: none; color: black }*!*!*/
+        /*!*!*header div a:visited { text-decoration: none; color: black }*!*!*/
+
+        /*nav { border:none; background: #bce55c; padding: 7px; margin-top: 5px }*/
+        /*.nav { margin-right: 10px }*/
+        /*#search { margin-left: 10px; outline: 2px solid forestgreen; color: forestgreen }*/
+        /*#findtype { width: 150px; outline: 2px solid forestgreen; text-decoration: underline }*/
+        /*#findbtn { width: 100px; border: none; border-radius: 7px; padding:3px; color: white; background: forestgreen}*/
+
+        /*section { width: 100%; border: 1px solid navy; margin-top: 5px }*/
+        /*aside {  }*/
+        /*aside ul { list-style-type: none }*/
+        /*aside ul li { border: 1px solid black; padding: 3px; width: 150px }*/
+
+    </style>
 </head>
 <body>
-    <header>
-        <h1>LOGO</h1>
-        <ul>
-            <li>contact</li>
-            <li>store locator</li>
-            <li>support</li>
-            <li>CART</li>
-        </ul>
-        <div><a href="#">Login</a> or
-            <a href="#">Create Account</a></div>
-    </header>
-    <nav>
-        <input type="text" name="search">
-        <select name="findtype">
-            <option>Category</option>
-        </select>
-        <button type="button" id="findbtn">SEARCH</button>
-    </nav>
-    <main>
+    <div id="container">
+        <header>
+            <h1>LOGO</h1>
+            <div id="menu"><ul>
+                <li>contact</li>
+                <li>store locator</li>
+                <li>support</li>
+                <li>CART</li>
+            </ul></div>
+            <div id="link"><a href="#">Login</a> or
+                <a href="#">Create Account</a></div>
+        </header>
+        <nav>
+            <input type="text" name="search" id="search" class="nav">
+            <select name="findtype" id="findtype" class="nav">
+                <option>Category</option>
+            </select>
+            <button type="button" id="findbtn" class="nav">SEARCH</button>
+        </nav>
+        <main>
+            <section>
+                <aside>
+                    <ul>
+                        <li>All Categories</li>
+                        <li>Category1</li>
+                        <li>Category2</li>
+                        <li>Category3</li>
+                        <li>Category4</li>
+                        <li>Category5</li>
+                        <li>Category6</li>
+                    </ul>
+                </aside>
+                <div id="banner">
+                    <p>[ PROMOTIONAL IMAGES ROTATE HERE ]</p>
+                    <ul><li>1</li><li>2</li><li>3</li><li>4</li></ul>
+                </div>
+            </section>
+            <section>
+                <div id="products">
+                    <h2>Today's Specials</h2>
+                    <ul>
+                        <li>
+                            <img src="#">
+                            <a href="#">Product1</a>
+                        </li>
+                        <li>
+                            <img src="#">
+                            <a href="#">Product2</a>
+                        </li>
+                        <li>
+                            <img src="#">
+                            <a href="#">Product3</a>
+                        </li>
+                        <li>
+                            <img src="#">
+                            <a href="#">Product4</a>
+                        </li>
+                        <li>
+                            <img src="#">
+                            <a href="#">Product5</a>
+                        </li>
+                        <li>
+                            <img src="#">
+                            <a href="#">Product6</a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <hr>
         <section>
-            <aside>
-                <ul>
-                    <li>All Categories</li>
-                    <li>Category1</li>
-                    <li>Category2</li>
-                    <li>Category3</li>
-                    <li>Category4</li>
-                    <li>Category5</li>
-                    <li>Category6</li>
-                </ul>
-            </aside>
-            <div id="banner">
-                <p>[ PROMOTIONAL IMAGES ROTATE HERE ]</p>
-                <ul><li>1</li><li>2</li><li>3</li><li>4</li></ul>
-            </div>
+            <div><h3>ABOUT US</h3></h2></div>
         </section>
-        <section>
-            <div id="products">
-                <h2>Today's Specials</h2>
-                <ul>
-                    <li>
-                        <img src="#">
-                        <a href="#">Product1</a>
-                    </li>
-                    <li>
-                        <img src="#">
-                        <a href="#">Product2</a>
-                    </li>
-                    <li>
-                        <img src="#">
-                        <a href="#">Product3</a>
-                    </li>
-                    <li>
-                        <img src="#">
-                        <a href="#">Product4</a>
-                    </li>
-                    <li>
-                        <img src="#">
-                        <a href="#">Product5</a>
-                    </li>
-                    <li>
-                        <img src="#">
-                        <a href="#">Product6</a>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <hr>
-    <section>
-        <div><h3>ABOUT US</h3></h2></div>
-    </section>
-    </main>
-    <footer>
+        </main>
+        <footer>
         <div>
             <ul>
                 <li><h3>ABOUT US</h3></li>
@@ -102,5 +147,6 @@
         </div>
         <div>Copyrights &copy; 2024. dangdang. All Rights Reserved.</div>
     </footer>
+    </div>
 </body>
 </html>
