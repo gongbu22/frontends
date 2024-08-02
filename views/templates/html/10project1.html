@@ -11,8 +11,8 @@
         /* header */
         header { border: 1px solid darkred; height: 100px }
 
-        header h1 { background: #cccccc; width: 150px;
-            text-align: center; padding: 10px 0;
+        header h1 { background: pink; width: 150px;
+            text-align: center; padding: 7px 0;
             margin-left: 20px; float:left }
 
         header ul { list-style: none; padding: 0; float: right; }
@@ -25,7 +25,15 @@
         .clear { clear: both }
 
         /* nav */
-        nav { border: 1px solid darkgreen }
+        nav { border: 1px solid darkgreen;
+         background: hotpink; height: 35px; }
+        nav input { border: 1px solid black;
+         width: 300px; margin-left: 20px; padding: 5px; }
+        nav select { width: 150px; padding: 4px; text-decoration: underline }
+        nav button { background: #999999; color: white;
+         width: 150px; font-size: 18px; border-radius: 8px;
+         padding: 2px;}
+        .navgroup { height: 35px; display: table-cell; vertical-align: middle }
 
 
         /* main */
@@ -76,11 +84,13 @@
                 <a href="#">Create Account</a></div>
         </header>
         <nav class="clear">
-            <input type="text" name="search" id="search" class="nav">
-            <select name="findtype" id="findtype" class="nav">
-                <option>Category</option>
-            </select>
-            <button type="button" id="findbtn" class="nav">SEARCH</button>
+            <div class="navgroup">
+                <input type="text" name="search" id="search" class="nav">
+                <select name="findtype" id="findtype" class="nav">
+                    <option>Category</option>
+                </select>
+                <button type="button" id="findbtn" class="nav">SEARCH</button>
+            </div>
         </nav>
         <main>
             <section>
