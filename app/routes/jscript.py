@@ -20,13 +20,17 @@ async def type(req: Request):
     return templates.TemplateResponse('js/02type.html', {'request': req})
 
 @jscript_router.get('/operator')
-async def flex(req: Request):
+async def operator(req: Request):
     return templates.TemplateResponse('js/03operator.html', {'request': req})
 
 @jscript_router.get('/condition')
-async def flex(req: Request):
+async def condition(req: Request):
     return templates.TemplateResponse('js/04condition.html', {'request': req})
 
 @jscript_router.get('/loop')
-async def flex(req: Request):
+async def loop(req: Request):
     return templates.TemplateResponse('js/05loop.html', {'request': req})
+
+@jscript_router.get('/array')
+async def array(req: Request):
+    return templates.TemplateResponse('js/06array.html', {'request': req})
