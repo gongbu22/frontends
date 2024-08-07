@@ -18,3 +18,15 @@ async def hello(req: Request):
 @jscript_router.get('/type')
 async def type(req: Request):
     return templates.TemplateResponse('js/02type.html', {'request': req})
+
+@jscript_router.get('/operator')
+async def flex(req: Request):
+    return templates.TemplateResponse('js/03operator.html', {'request': req})
+
+@jscript_router.get('/condition')
+async def flex(req: Request):
+    return templates.TemplateResponse('js/04condition.html', {'request': req})
+
+@jscript_router.get('/loop')
+async def flex(req: Request):
+    return templates.TemplateResponse('js/05loop.html', {'request': req})
