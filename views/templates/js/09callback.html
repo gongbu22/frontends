@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>내장함수 및 콜백</title>
+</head>
+<body>
+    <h1>내장함수</h1>
+    <h2>개요</h2>
+    자바스크립트 언어 자체에 기본적으로 포함되어 있는 함수
+    이러한 함수들은 개발자가 별도의 라이브러리나 모듈을 import 하지 않고도 바로 사용할 수 있음
+
+    <h2>내장함수 종류</h2>
+    <p>전역 함수: parseInt(), parseFloat(), isNaN(), eval() 등 전역 스코프에서 사용 가능한 함수</p>
+    <p>객체 관련 함수: Object.keys(), Object.values(), Object.entries() 등 객체를 조작하기 위한 함수</p>
+    <p>배열 관련 함수: Array.prototype.push(), Array.prototype.map(), Array.prototype.filter() 등 배열을 조작하기 위한 함수</p>
+    <p>문자열 관련 함수: String.prototype.toUpperCase(), String.prototype.substring(), String.prototype.replace() 등 문자열을 조작하기 위한 함수</p>
+    <p>숫자 관련 함수: Math.round(), Math.random(), Math.max() 등 숫자 계산을 위한 함수</p>
+    <p>날짜 및 시간 관련 함수: Date(), Date.prototype.getFullYear(), Date.prototype.getMonth() 등 날짜 및 시간을 다루기 위한 함수</p>
+
+    <script>
+        // 현재 날짜/시간 출력
+        let today = new Date();
+        let date = today.getFullYear() +
+            '-' + Number(today.getMonth() + 1) +
+            '-' + today.getDate() +
+            ' ' + today.getHours() +
+            ':' + today.getMinutes() +
+            ':' + today.getSeconds();
+
+        document.write(`${date}`, '<br>');
+        document.write(today.toString(), '<br>');
+        document.write(today.toLocaleString(), '<br>');
+
+        let options = {month: 'long', day: 'numeric'};
+        document.write(today.toLocaleDateString('ko-KR', options), '<br>');
+    </script>
+
+    <h2>특정함수를 주기적으로 실행하기</h2>
+    <p>setTimeout(함수명, 시간) : 지정한 시간이 흐른 후 함수 실행 (1번)</p>
+    <p>setInterval(함수명, 시간) : 지정한 시간이 흐른 후 함수 실행 (계속)</p>
+    <p>함수 지정시 ()는 생략, 시간은 1/1000초 단위임</p>
+    <p>Timeout, Interval을 중지하고 싶다면, clear~라는 함수 호출할 것!</p>
+
+    <script>
+        let showDateTime = () => {
+            let today = new Date();
+            document.write(today.toLocaleString(), '<br>');
+        }
+
+        // setInterval(showDateTime, 1000);
+    </script>
+
+    <h2>Number 객체</h2>
+    <p>toFixed(소수부 자릿수)</p>
+
+    <script>
+        let avg = 98.7777777777776;
+        document.write(avg.toFixed(1), '<br>');
+    </script>
+
+    <h2>String</h2>
+    <p>문자열을 효율적으로 다룰수 있게 해 줌</p>
+    <p>String 객체는 기본적으로 불변immutable 객체(변경불가)임</p>
+    <p>문자열은 기본적으로 문자열 상수풀pool을 이용해서 관리함</p>
+
+    <script>
+        let str1 = 'Hello, World!!';
+        let str2 = 'Hello, World!!';
+        let str3 = new String('Hello, World!!') ;
+
+        // 값비교
+        document.write(`st1 == str2 = ${str1 == str2} <br>`);
+        document.write(`st1 == str3 = ${str1 == str3} <br>`);
+
+        // 값/자료형 비교
+        document.write(`st1 === str2 = ${str1 === str2} <br>`);
+        document.write(`st1 === str3 = ${str1 === str3} <br>`);
+        // 문자열 상수풀 때문에 str1 === str2
+
+        str1[0] = 'h';
+        document.write(str1[0], '<br>');
+        // 문자열은 불변객체이므로 변경불가!!
+
+        // slice(시작, 끝+1) : 지정한 점위내 문자 추출
+        document.write(str1.slice(0, 5), '<br>');
+
+        // indexof(찾는 문자열) : 특정문자열의 존재 여부
+        document.write(str1.indexOf('World'), '<br>');
+        document.write(str1.indexOf('sayHello'), '<br>');
+
+        // lastIndexOf (찾는 문자열)
+        str4 = 'Hello, Hello, Hello, World!!';
+        document.write(str4.indexOf('Hello'), '<br>');
+        document.write(str4.lastIndexOf('Hello'), '<br>');
+
+        // replace(찾을 문자열, 바꿀문자열)
+        // Hello를 Hi로 바꿈
+        document.write(str3.replace('Hello', 'Hi'), '<br>');
+        document.write(str4.replace('Hello', 'Hi'), '<br>');
+        // 만일, 찾을 문자열이 하나 이상 존재할 경우,
+        // 정규표현식 형태로 작성하고 적용범위를 지정해야 함
+        document.write(str4.replace(/Hello/g, 'Hi'), '<br>');
+
+        // split( 구분문자)
+        today = '2024-08-08 10:40:15';
+        document.write(today.split(' '), '<br>');
+        document.write(today.split(' ')[0], '<br>');
+        document.write(today.split(' ')[1], '<br>');
+
+        // padStart(전체자릿수, 채울문자), padEnd
+        let month = '8';
+        document.write(month.padStart(2, 0), '<br>');
+
+    </script>
+
+    <h2>Math</h2>
+    <script>
+        let num = 3.14152;
+        document.write(Math.round(num, 1), '<br>');
+        document.write(Math.ceil(num), '<br>');
+        document.write(Math.floor(num), '<br>');
+
+        // random : 0~1사이 임의의 실수값 출력
+        // 특정 범위 임의의 정수 생성 공식
+        // floor(random * (max - min + 1)) + min
+
+        let rndnum = parseInt(Math.random() * 10); // 0 ~ 9
+        document.write(rndnum, '<br>');
+
+        // ex) 위 공식을 이용해서 randInt라는 함수를 만들고,
+        // 1~45 사이 임의의 정수 6개를 출력
+        function randInt() {
+            return parseInt(Math.random() * 45)+1;
+        }
+        let i = 0
+        while (i < 6) {
+            document.write(randInt(), ' ');
+            ++i;
+        }
+
+        document.write('<br>');
+        // =====선생님 풀이========
+        let randInt2 = (mn, mx) => {
+            return Math.floor(
+                Math.random() * (mx - mn + 1)) + mn;
+        };
+
+        let lotto = [];
+        for (let i = 1; i<=6; ++i){
+            // document.write(randInt2(1, 45), '<br>');
+            lotto.push(randInt2(1, 45));
+        }
+        document.write(lotto.sort(), '<br>');
+
+    </script>
+
+    <script>
+        // ex) 파일명이 abc.123.png 일때
+        // 파일이름과 확장자로 분리하세요
+        // abc.123.png => abc.123 / png
+        let fullname = 'abc.123.png';
+        let fullsplit = fullname.split('.');
+        let fname = `${fullsplit[0]}.${fullsplit[1]}`;
+        let fext = fullsplit[2];
+
+        document.write(`${fullname}의 파일이름 : ${fname}`, '<br>');
+        document.write(`${fullname}의 확장자 : ${fext}`, '<br>');
+
+        let fname2 = fullname.slice(0, fullname.lastIndexOf('.'));
+        let fext2 = fullname.slice(fullname.lastIndexOf('.')+1);
+
+        document.write(`${fullname}의 파일이름 : ${fname2}`, '<br>');
+        document.write(`${fullname}의 확장자 : ${fext2}`, '<br>');
+
+    </script>
+
+
+
+    <p></p>
+</body>
+</html>
