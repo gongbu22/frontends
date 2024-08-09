@@ -56,7 +56,7 @@
             // 기존 시군구 항목 제거
             while(gugun.firstChild) { // 시군구에 항목이 있으면
                 gugun.removeChild(gugun.firstChild); //자식요소 제거
-            }
+            };
 
             // 타이틀
             let opt = document.createElement('option');
@@ -75,6 +75,11 @@
             }
         };
         let getDong = () => {
+
+            while(dong.firstChild) {
+                dong.removeChild(dong.firstChild);
+            }
+
             // 타이틀
             let opt = document.createElement('option');
             let txt = document.createTextNode('읍/면/동');
@@ -82,7 +87,7 @@
             dong.appendChild(opt);
 
             // 시군구 목록
-            for (let val of dongdata[0][0]) {
+            for (let val of dongdata[sido.selectedIndex -1][gugun.selectedIndex -1]) {
                 opt = document.createElement('option');
                 txt = document.createTextNode(val);
                 opt.appendChild(txt);
