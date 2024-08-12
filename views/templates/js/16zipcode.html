@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>우편번호 검색 zipcode</title>
+    <style>
+        select { padding: 5px; }
+    </style>
 </head>
 <body>
     <h1>zipcode</h1>
@@ -11,6 +14,7 @@
         <select id="sido" onchange="getGugun()"></select>
         <select id="gugun" onchange="getDong()"></select>
         <select id="dong" onchange="getAddress()"></select>
+        <p id="myaddr"></p>
     </div>
     <script>
         let sidodata = ['서울특별시','경기도','인천광역시',
@@ -76,8 +80,9 @@
         };
         let getDong = () => {
 
-            while(dong.firstChild) {
-                dong.removeChild(dong.firstChild);
+            // 기존 읍면동 항목 제거
+            while(dong.firstChild) { // 읍면동에 항목이 있으면
+                dong.removeChild(dong.firstChild);  // 자식요소 제거
             }
 
             // 타이틀
@@ -86,12 +91,23 @@
             opt.appendChild(txt);
             dong.appendChild(opt);
 
-            // 시군구 목록
-            for (let val of dongdata[sido.selectedIndex -1][gugun.selectedIndex -1]) {
-                opt = document.createElement('option');
-                txt = document.createTextNode(val);
-                opt.appendChild(txt);
-                dong.appendChild(opt);
+            // 읍면동 목록
+            if (gugun.selectedIndex > 0) {
+                for (let val of dongdata[sido.selectedIndex - 1][gugun.selectedIndex - 1]) {
+                    opt = document.createElement('option');
+                    txt = document.createTextNode(val);
+                    opt.appendChild(txt);
+                    dong.appendChild(opt);
+                }
+            }
+        };
+
+        let getAddress = () => {
+            if (dong.selectedIndex > 0 ){
+                let result = `선택한 주소 :
+                ${sido.value} ${gugun.value} ${dong.value}`;
+                let myaddr = document.querySelector('#myaddr');
+                myaddr.textContent = result;
             }
         };
 
